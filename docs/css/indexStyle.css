@@ -16,6 +16,10 @@ body{
     margin: 0;
     padding: 10px;
 }
+#header a{
+    color: black;
+    text-decoration: none;
+}
 
 
 #content{

@@ -8,7 +8,7 @@ const path = require('path');//Require Path for determine directory path for dif
 
 const qs = require('qs');//Require qs for more secure
 
-const port = 3000;//Local port
+const port = process.env.PORT || 3000;//Local port
 
 
 const app = express();// Start up an instance of app
