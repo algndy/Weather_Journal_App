@@ -68,7 +68,18 @@ async function getData(fullURI)
     
     try
     {
+        
         const newData = await data.json();
+        
+        if(newData.cod != 200)
+        {
+            document.querySelector('#info').style.cssText = "display:flex;justify-content:center"
+            document.querySelector('#info').innerHTML =
+               `<div style='font-size:33px;color:red;'>${newData.message}!!<div>
+                <div style='font-size:20px;color:red;'>Please Enter United States Zip Code`;
+        }
+        
+        console.log(newData.cod+"asdasdasd");
         console.log(newData);
         const date = new Date();
         const totalData ={
@@ -122,18 +133,28 @@ async function updateUI()
 {
     const data = await fetch('/all')
     
+    
     try
     {
         const finalData = await data.json();
-        let feelings = document.querySelector('#feel').innerHTML =`<div>${finalData.feelings}</div>`;
+        if(finalData.cod == 200)
+        {
+            document.querySelector('#info').innerHTML = `
+            <div id="all-info-without-feel">
+                <div class="weather-info" id="img-temp-weather"></div>
+                <div class="weather-info" id="country-city-date"></div>
+            </div>
+            <div class="weather-info" id="feel"></div>`
+        document.querySelector('#feel').innerHTML =`<div>${finalData.feelings}</div>`;
         
-        let temp = document.querySelector('#img-temp-weather').innerHTML =
+        document.querySelector('#img-temp-weather').innerHTML =
             `<div><img src="${finalData.imgSrc}"></div>
             <div><span>${finalData.weather}: ${finalData.temp}&deg;C</span></div>`;
         
-        let country = document.querySelector('#country-city-date').innerHTML =
+        document.querySelector('#country-city-date').innerHTML =
             `<div><p>${finalData.country}, ${finalData.city}</p></div>
             <div><p>${finalData.date}</p></div>`;
+        }
     }
     catch(e)
     {
