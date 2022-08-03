@@ -20,8 +20,7 @@ btn.addEventListener('click',(e)=>{
         myForm.classList.remove("active-big-form");
         myinfo.classList.remove("active-big-info");
         myForm.classList.add("active-small-form");
-        myinfo.classList.add("active-small-info");
-        myinfo.scrollIntoView({behavior:"smooth",block:"center"}); 
+        myinfo.classList.add("active-small-info"); 
     }
     else if(outerWidth>1212)
     {
@@ -30,7 +29,7 @@ btn.addEventListener('click',(e)=>{
     myForm.classList.add("active-big-form");
     myinfo.classList.add("active-big-info");
     }
-  
+  myinfo.scrollIntoView({behavior:"smooth",block:"center"});
    
 });
 
