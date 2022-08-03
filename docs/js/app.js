@@ -1,3 +1,4 @@
+//Global Variables
 const baseURL ="https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = ",us&appid=188edc895e774e8cc5bd65a8f853c557&units=";
 const unit ="metric";
@@ -6,14 +7,12 @@ let zipCode;
 let userFeelings;
 
 
-
+//Event listener for add active class to the form and weather info to make it responsive when click on Generate button
 btn.addEventListener('click',(e)=>{
     e.preventDefault();
     
     const myForm = document.querySelector('#container form');
     const myinfo = document.querySelector('#info');
-    //  myForm.style.cssText+="position:relative;transition:right 1000ms;right:5%";
-    //  myinfo.style.cssText = ";opacity:1;transition:opacity 2000ms, width 1500ms, height 1500ms;width:500px;height:243px";
     
     if(outerWidth<=1212)
     {
@@ -33,6 +32,13 @@ btn.addEventListener('click',(e)=>{
    
 });
 
+
+/*
+Event listener for 
+fetch Weather data from WeatherOpen website 
+then post it to  hte server 
+then show it on our website 
+*/
 btn.addEventListener('click',performAction)
 
 function performAction(e)
@@ -51,6 +57,11 @@ function performAction(e)
     
 }
 
+/*
+fetch Weather data then
+Manipulate data to obtain the required data then
+return required data to use it in the next function (postData) 
+*/ 
 async function getData(fullURI)
 {
     const data = await fetch(fullURI);
@@ -79,6 +90,7 @@ async function getData(fullURI)
 }
 
 
+//Post fetched data from getData function
 async function postData(url="",data={})
 {
     const option = {
@@ -104,6 +116,8 @@ async function postData(url="",data={})
 
 }
 
+
+//Update UI and show data at front-end
 async function updateUI()
 {
     const data = await fetch('/all')
