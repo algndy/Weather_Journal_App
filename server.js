@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(cors());// Cors for cross origin allowance
 
 
-app.use(express.static(path.join(__dirname,'..','docs')));// Initialize the main project folder
+app.use(express.static(path.join(__dirname,'docs')));// Initialize the main project folder
 
 // Setup Server
 const server = app.listen(port,()=>{
