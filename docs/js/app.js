@@ -77,6 +77,7 @@ async function getData(fullURI)
             document.querySelector('#info').innerHTML =
                `<div style='font-size:33px;color:red;'>${newData.message}!!<div>
                 <div style='font-size:20px;color:red;'>Please Enter United States Zip Code`;
+            throw newData.message;
         }
         
         console.log(newData);
