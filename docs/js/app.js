@@ -79,7 +79,6 @@ async function getData(fullURI)
                 <div style='font-size:20px;color:red;'>Please Enter United States Zip Code`;
         }
         
-        console.log(newData.cod+"asdasdasd");
         console.log(newData);
         const date = new Date();
         const totalData ={
