@@ -21,14 +21,14 @@ body{
     text-decoration: none;
 }
 
-#content{
+#container{
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
     padding: 50px;
 }
-#content form{
+#container form{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -40,7 +40,7 @@ body{
     width: 340px;
     transition: right 1000ms , width 1000ms;
 }
-#info{
+#entryHolder{
     width: 0;
     height: 0;
     opacity: 0;
@@ -55,22 +55,22 @@ body{
     font-family: 'Karla', sans-serif;
 }
 
-#content form.active-big-form{
+#container form.active-big-form{
     position:relative;
     transition:right 1000ms , width 1000ms;
     right:5%;
 }
-#info.active-big-info{
+#entryHolder.active-big-info{
     opacity: 1;
     width: 500px;
     height: 243px;
     transition: opacity 2000ms, width 1500ms, height 1500ms;  
 }
 
-#content form.active-small-form{
+#container form.active-small-form{
    margin:50px;
 }
-#info.active-small-info{
+#entryHolder.active-small-info{
     
     opacity: 1;
     width: 500px;
@@ -98,12 +98,12 @@ body{
     line-height: 2.5;
 }
 
-#feel{
+#content{
     display: flex;
     justify-content: center;
 }
 
-#feel div{
+#content div{
     width: max-content;
     padding: 5px 30px;
     box-shadow: 0 0 6px;
@@ -154,15 +154,15 @@ body{
 
 @media screen and (max-width: 1212px)
 {
-    #content{
+    #container{
     flex-direction: column-reverse;
     }
-    #content form{
+    #container form{
     }
-    #content form.active-big-form{
+    #container form.active-big-form{
         right: 0;   
     }
-    #content form.active-big-form{
+    #container form.active-big-form{
         margin: 50px; 
     }
     
@@ -181,16 +181,16 @@ body{
     #country-city-date{
         font-size:20px;
     }
-    #info.active-small-info{
+    #entryHolder.active-small-info{
         width: 340px
     }
-    #info.active-big-info{
+    #entryHolder.active-big-info{
         width: 340px
     }
-    #content form{
+    #container form{
         width: 250px;
     }
-    #feel div{
+    #content div{
         font-size: 20px;
     }
     

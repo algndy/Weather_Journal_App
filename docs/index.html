@@ -10,25 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="container">
+    <div >
         <section id="header">
           <a target="_blank" href="https://www.back4app.com/database/back4app/zip-codes-all-countries-in-the-world/united-states-zip-code-list">
               <p>Weather Journal App</p>
           </a> 
         </section>
         
-        <section id="content">
+        <section id="container">
             <form method="POST" action="/">
                 <input type="text" id="zip" placeholder="enter zip code here">
                 <textarea placeholder="How do you feel now?" id="feelings"></textarea>
                 <button id="generate" type="submit">Generate</button>
             </form>
-            <div id="info">
-                <div id="all-info-without-feel">
-                    <div class="weather-info" id="img-temp-weather"></div>
-                    <div class="weather-info" id="country-city-date"></div>
-                </div>
-                <div class="weather-info" id="feel"></div>
+            
+            <div id = "entryHolder">
+                <div id = "temp"></div>
+                <div id = "date"></div>
+                <div id = "content"></div>
             </div>
         </section>
         

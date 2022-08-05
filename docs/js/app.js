@@ -12,7 +12,7 @@ btn.addEventListener('click',(e)=>{
     e.preventDefault();
     
     const myForm = document.querySelector('#container form');
-    const myinfo = document.querySelector('#info');
+    const myinfo = document.querySelector('#entryHolder');
     
     if(outerWidth<=1212)
     {
@@ -73,8 +73,8 @@ async function getData(fullURI)
         
         if(newData.cod != 200)
         {
-            document.querySelector('#info').style.cssText = "display:flex;justify-content:center"
-            document.querySelector('#info').innerHTML =
+            document.querySelector('#entryHolder').style.cssText = "display:flex;justify-content:center"
+            document.querySelector('#entryHolder').innerHTML =
                `<div style='font-size:33px;color:red;'>${newData.message}!!<div>
                 <div style='font-size:20px;color:red;'>Please Enter United States Zip Code`;
             throw newData.message;
@@ -139,21 +139,26 @@ async function updateUI()
         const finalData = await data.json();
         if(finalData.cod == 200)
         {
-            document.querySelector('#info').innerHTML = `
-            <div id="all-info-without-feel">
-                <div class="weather-info" id="img-temp-weather"></div>
-                <div class="weather-info" id="country-city-date"></div>
+            document.querySelector('#entryHolder').innerHTML =
+            `<div id="all-info-without-feel">
+                <div id = "temp"></div>
+                <div id = "date"></div>
             </div>
-            <div class="weather-info" id="feel"></div>`
-        document.querySelector('#feel').innerHTML =`<div>${finalData.feelings}</div>`;
+            <div id = "content"></div>`;
+            
+        document.querySelector('#content').innerHTML =`<div>${finalData.feelings}</div>`;
         
-        document.querySelector('#img-temp-weather').innerHTML =
-            `<div><img src="${finalData.imgSrc}"></div>
-            <div><span>${finalData.weather}: ${finalData.temp}&deg;C</span></div>`;
+        document.querySelector('#temp').innerHTML =
+        `<div class="weather-info" id="img-temp-weather">
+            <div><img src="${finalData.imgSrc}"></div>
+            <div><span>${finalData.weather}: ${finalData.temp}&deg;C</span></div>
+        </div>`;
         
-        document.querySelector('#country-city-date').innerHTML =
-            `<div><p>${finalData.country}, ${finalData.city}</p></div>
-            <div><p>${finalData.date}</p></div>`;
+        document.querySelector('#date').innerHTML =
+        `<div class="weather-info" id="country-city-date">
+            <div><p>${finalData.country}, ${finalData.city}</p></div>
+            <div><p>${finalData.date}</p></div>
+        </div>`;
         }
     }
     catch(e)
